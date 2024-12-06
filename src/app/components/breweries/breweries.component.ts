@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { BreweriesService } from '../services/breweries.service';
+import { BreweriesService } from '../../services/breweries.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
+import { ModalService } from '../../services/modal.services';
 
 @Component({
     selector: 'app-breweries',
@@ -13,6 +14,7 @@ import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 })
 export class BreweriesComponent {
     private breweriesService = inject(BreweriesService);
+    private modalService = inject(ModalService);
 
     errorMessage = this.breweriesService.showErrorMessage;
     breweries = this.breweriesService.loadedBreweries;
@@ -25,13 +27,17 @@ export class BreweriesComponent {
             debounceTime(200),
             distinctUntilChanged())
             .subscribe(value => {
-                this.breweriesService.loadBreweries(value);
+                this.breweriesService.fetchBreweries(value);
             });
     }
 
     searchChanged(value: string): void {
         this.searchValue = value;
         this.searchSubject.next(value);
+    }
+
+    showBrewery(id: string): void {
+        this.modalService.openOverlay(id);
     }
 
     ngOnDestroy() {

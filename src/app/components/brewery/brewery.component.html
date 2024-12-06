@@ -1,0 +1,45 @@
+@if (loaded) {
+<div @slideInUp class="brewery">
+    <div class="brewery__header">
+        <div class="brewery__icon brewery__avatar">{{firstLetter}}</div>
+        <div>{{brewery.name}}</div>
+        <button class="brewery__close" (click)="close()"><mat-icon>close</mat-icon></button>
+    </div>
+    <ul class="brewery__details">
+        <li class="brewery__detail">
+            <mat-icon class="brewery__icon">star</mat-icon>
+            <div>
+                <label class="brewery__label">type</label>
+                <div class="brewery__value">{{brewery.brewery_type}}</div>
+            </div>
+        </li>
+        <li class="brewery__detail">
+            <mat-icon class="brewery__icon">language</mat-icon>
+            <div>
+                <label class="brewery__label">Website</label>
+                <div class="brewery__value">{{brewery.website_url}}</div>
+            </div>
+        </li>
+        <li class="brewery__detail">
+            <mat-icon class="brewery__icon">home</mat-icon>
+            <div>
+                <label class="brewery__label">Adress</label>
+                <div class="brewery__value">{{brewery.street}}</div>
+                <div class="brewery__value">{{brewery.city}}</div>
+                <div class="brewery__value">{{brewery.state}}</div>
+                <div class="brewery__value">{{brewery.country}}</div>
+            </div>
+        </li>
+        <li class="brewery__detail">
+            <mat-icon class="brewery__icon">phone</mat-icon>
+            <div>
+                <label class="brewery__label">Phone</label>
+                <div class="brewery__value">{{brewery.phone}}</div>
+            </div>
+        </li>
+    </ul>
+    <div class="brewery__footer">
+        <button class="brewery__button" (click)="close()" mat-flat-button>Done</button>
+    </div>
+</div>
+}

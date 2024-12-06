@@ -14,7 +14,7 @@ export class BreweriesService {
     loadedBreweries = this.breweries.asReadonly();
     showErrorMessage = this.errorMessage.asReadonly();
 
-    loadBreweries(searchValue: string): void {
+    fetchBreweries(searchValue: string): void {
         this.httpClient.get<Brewery[]>(`https://api.openbrewerydb.org/breweries/search?query={${searchValue}}`).pipe(
             catchError(error => {
                 return throwError(() => new Error('Could not load breweries'))
@@ -31,5 +31,9 @@ export class BreweriesService {
                 }, 1500);
             }
         })
+    }
+
+    loadBrewery(id: string): Brewery | undefined {
+        return this.loadedBreweries().find(brewery => brewery.id === id);
     }
 }
