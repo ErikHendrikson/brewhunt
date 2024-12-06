@@ -17,7 +17,7 @@ export class BreweriesService {
     showErrorMessage = this.errorMessage.asReadonly();
 
     fetchBreweries(searchValue: string): void {
-        this.httpClient.get<Brewery[]>(`https://api.openbrewerydb.org/breweries/search?query={${searchValue}}`).pipe(
+        this.httpClient.get<Brewery[]>(`https://api.openbrewerydb.org/breweries/search?query={${searchValue}&per_page=25}`).pipe(
             catchError(error => {
                 return throwError(() => new Error('Could not load breweries'))
             })
