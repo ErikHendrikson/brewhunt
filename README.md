@@ -1,59 +1,24 @@
-# Brewhunt
+-- Time Estimation --
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+Inschatten van werk [30 mins, done]
 
-## Development server
+setup project en installeren dependencies [15 mins, done]
+- angular 19 met SCSS en signals
+- angular mui
 
-To start a local development server, run:
+Breweries [90 mins]
+- Component met MUI table en input voor search
+- BreweriesService, die de breweries ophaalt en in signal stopt, errormessage wordt naast search input geplaatst
 
-```bash
-ng serve
-```
+OverlayService [60 mins]
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+BreweryDetailed component [60 mins]
+- volgens design
+- toevoegen:   adresgegevens(street, postal code, city, state, phone number)
 
-## Code scaffolding
+Totaal: 15 + 30 + 90 + 60 + 60 = 255, iets meer dan 4 uur.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Als ik tijd over heb, maar tot 6 uur max…:
+-favorites kunnen saven (localstorageService aanmaken met setters en getters) [voorkeur]
+-Leaflet map boven de results plaatsen met markers van breweries, evt met kleine dialog die opent met naam en website
+- Toasterservice en ToasterComponent met errormessaging als ophalen data mislukt
