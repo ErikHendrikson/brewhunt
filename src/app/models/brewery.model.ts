@@ -15,4 +15,5 @@ export interface Brewery {
     website_url: string | null;
     state: string;
     street: string;
+    isFavorite?: boolean;
 }

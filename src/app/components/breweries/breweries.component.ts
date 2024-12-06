@@ -5,10 +5,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 import { ModalService } from '../../services/modal.services';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector: 'app-breweries',
-    imports: [MatTableModule, MatButtonModule, FormsModule],
+    imports: [MatTableModule, MatButtonModule, MatIconModule, FormsModule],
     templateUrl: './breweries.component.html',
     styleUrl: './breweries.component.scss'
 })
@@ -18,7 +19,7 @@ export class BreweriesComponent {
 
     errorMessage = this.breweriesService.showErrorMessage;
     breweries = this.breweriesService.loadedBreweries;
-    displayedColumns: string[] = ['position', 'name'];
+    displayedColumns: string[] = ['position', 'name', 'favorite'];
     searchValue: string = '';
     searchSubject = new Subject<string>();
 
@@ -38,6 +39,10 @@ export class BreweriesComponent {
 
     showBrewery(id: string): void {
         this.modalService.openOverlay(id);
+    }
+
+    toggleFavorite(id: string): void {
+        this.breweriesService.toggleFavorite(id);
     }
 
     ngOnDestroy() {

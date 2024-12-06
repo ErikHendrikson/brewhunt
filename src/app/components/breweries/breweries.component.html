@@ -20,5 +20,18 @@
                 <button (click)="showBrewery(element.id)" mat-button>{{element.name}}</button>
             </td>
         </ng-container>
+
+        <ng-container matColumnDef="favorite">
+            <th mat-header-cell *matHeaderCellDef> Favorite </th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="toggleFavorite(element.id)">
+                    @if (element.isFavorite) {
+                    <mat-icon>favorite</mat-icon>
+                    } @else {
+                    <mat-icon>favorite_border</mat-icon>
+                    }
+                </button>
+            </td>
+        </ng-container>
     </table>
 </div>
